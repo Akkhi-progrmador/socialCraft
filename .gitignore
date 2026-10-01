@@ -1,0 +1,13 @@
+# Ignorar o arquivo de senhas e configurações sensíveis
+.env
+
+# Ignorar os arquivos temporários do Python (pastas __pycache__)
+*.pyc
+__pycache__/
+
+# Ignorar o ambiente virtual (substitua pelo nome da sua pasta venv, se for diferente)
+venv/
+.venv/
+
+# Opcional: Ignorar o banco de dados local SQLite (se não quiser enviar seus testes locais)
+db.sqlite3

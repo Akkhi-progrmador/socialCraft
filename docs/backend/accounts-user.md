@@ -89,7 +89,9 @@ social
 servers
 notifications
 moderation
-core 5. Configuração do User personalizado
+core
+
+5. Configuração do User personalizado
 
 O Django possui um modelo de usuário padrão, mas o SocialCraft precisa de uma identidade diferente.
 
@@ -128,7 +130,7 @@ accounts.User
 
 e não:
 
-django.contrib.auth.models.User
+django.contrib.auth.models.User que é o padrão
 Importância
 
 Essa configuração é extremamente importante quando se utiliza um User customizado.
@@ -243,7 +245,9 @@ validação de formato
 
 Lower(username)
 ↓
-unicidade case-insensitive 11. Email como identificador de autenticação
+unicidade case-insensitive
+
+11. Email como identificador de autenticação
 
 O Django normalmente utiliza:
 
@@ -366,6 +370,7 @@ Foram adicionados:
 
 created_at
 updated_at
+
 created_at
 
 Utiliza:
@@ -431,7 +436,9 @@ username → identidade pública
 
 e o username pode utilizar a constraint:
 
-Lower(username) 18. Criação do UserManager
+Lower(username)
+
+18. Criação do UserManager
 
 Como o identificador de autenticação foi alterado, foi criado um manager personalizado.
 
@@ -446,7 +453,9 @@ BaseUserManager
 e fornece:
 
 create_user()
-create_superuser() 19. Responsabilidades do UserManager
+create_superuser()
+
+19. Responsabilidades do UserManager
 
 O UserManager é responsável pela criação técnica de usuários.
 
@@ -467,7 +476,9 @@ Responsabilidades:
 criar usuário através de create_user;
 garantir is_staff=True;
 garantir is_superuser=True;
-definir o status inicial como ACTIVE. 20. Por que usar set_password?
+definir o status inicial como ACTIVE.
+
+20. Por que usar set_password?
 
 Nunca devemos fazer:
 
@@ -573,7 +584,9 @@ User
 
 e:
 
-UserManager 25. Conflito de tipagem em objects
+UserManager
+
+25. Conflito de tipagem em objects
 
 Ao definir:
 
@@ -622,7 +635,9 @@ python3 manage.py makemigrations
 
 O Django criou:
 
-accounts/migrations/0001_initial.py 28. Problema com migrations apagadas
+accounts/migrations/0001_initial.py
+
+28. Problema com migrations apagadas
 
 Durante o desenvolvimento, as pastas de migrations foram apagadas depois de uma aplicação anterior.
 
@@ -654,7 +669,9 @@ a migration foi criada;
 foi aplicada;
 o banco ainda existe;
 o projeto está em desenvolvimento;
-existem dados que precisam ser preservados. 29. Aplicação das migrations
+existem dados que precisam ser preservados.
+
+29. Aplicação das migrations
 
 Depois da recriação das migrations foi executado:
 
@@ -705,7 +722,9 @@ estão funcionando como planejado.
 
 O resultado foi:
 
-Superuser created successfully. 31. Fluxo final validado
+Superuser created successfully.
+
+31. Fluxo final validado
 
 O fluxo completo testado foi:
 
@@ -731,7 +750,9 @@ save()
 ↓
 accounts_user
 ↓
-Superuser criado 32. Verificação estrutural
+Superuser criado
+
+32. Verificação estrutural
 
 Também foi executado:
 
@@ -768,7 +789,9 @@ Está implementado:
 ├──────────────┤
 │ create_user │
 │ create_super │
-└──────────────┘ 34. O que ainda NÃO foi implementado
+└──────────────┘
+
+34. O que ainda NÃO foi implementado
 
 Esta implementação não significa que todo o sistema de autenticação do SocialCraft esteja terminado.
 
@@ -835,7 +858,9 @@ password hashing
 set_password
 autenticação versus autorização
 identificação do usuário através do email
-estados de conta 36. Decisões arquiteturais registradas
+estados de conta
+
+36. Decisões arquiteturais registradas
 
 As decisões tomadas nesta etapa foram:
 
@@ -853,7 +878,9 @@ Utilizar tipagem com TYPE_CHECKING.
 Não armazenar senhas manualmente.
 Usar migrations como histórico estrutural do banco.
 Não apagar migrations sem entender seu estado.
-Manter o User como fundação dos demais domínios. 37. Próxima etapa
+Manter o User como fundação dos demais domínios.
+
+37. Próxima etapa
 
 Com o User funcionando, o próximo domínio é:
 
