@@ -22,10 +22,10 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)  #em
     email_verified_at = models.DateTimeField(null=True, blank=True) #email_verified_at é nulo por padrão, mas pode ser preenchido quando o email for verificado
     created_at = models.DateTimeField(auto_now_add=True) #created_at é definido automaticamente quando o objeto é criado
-    updated_at = models.DateTimeField(auto_now=True)  #update_at é atualizado automaticamente toda vez que o objeto é salvo  d
+    updated_at = models.DateTimeField(auto_now=True)  #update_at é atualizado automaticamente toda vez que o objeto é salvo
 
     USERNAME_FIELD = 'email'          # Define o email como o campo de login
-    REQUIRED_FIELDS = ['username']    # Move o username para os campos obrigatórios no terminal
+    REQUIRED_FIELDS = ['username']    # Move o username para os campos obrigatórios no terminal, ex. na criação do superuser
 
     objects: ClassVar[UserManager] = UserManager()  # pyright: ignore[reportIncompatibleVariableOverride] # Use o UserManager personalizado para criar usuários e superusuários
 

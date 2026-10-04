@@ -5,9 +5,6 @@
 *.pyc
 __pycache__/
 
-# Ignorar o ambiente virtual (substitua pelo nome da sua pasta venv, se for diferente)
+# Ignorar o ambiente virtual
 venv/
 .venv/
-
-# Opcional: Ignorar o banco de dados local SQLite (se não quiser enviar seus testes locais)
-db.sqlite3
